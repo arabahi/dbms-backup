@@ -1,5 +1,5 @@
 -- Create the Employee table
-CREATE TABLE Employee (    Fname VARCHAR(50),    Mname VARCHAR(50),    Lname VARCHAR(50) NOT NULL,    Ssn CHAR(9) NOT NULL, -- Social Security Number (SSN)    Bdate DATE,    Address VARCHAR(255),    Gender CHAR(1),    Salary DECIMAL(10, 2),    Super_Ssn CHAR(9),    Dept_num INT NOT NULL,    PRIMARY KEY (Ssn),    FOREIGN KEY (Dept_num) REFERENCES Department(Dept_num),    FOREIGN KEY (Super_Ssn) REFERENCES Employee(Ssn));
+CREATE TABLE Employee (    Fname VARCHAR(50),    Mname VARCHAR(50),    Lname VARCHAR(50) NOT NULL,    Ssn CHAR(9) NOT NULL,    Bdate DATE,    Address VARCHAR(255),    Gender CHAR(1),    Salary DECIMAL(10, 2),    Super_Ssn CHAR(9),    Dept_num INT NOT NULL,    PRIMARY KEY (Ssn),    FOREIGN KEY (Dept_num) REFERENCES Department(Dept_num),    FOREIGN KEY (Super_Ssn) REFERENCES Employee(Ssn));
 
 -- Create the Department table
 CREATE TABLE Department (    Dept_num INT PRIMARY KEY,    Dept_name VARCHAR(100) UNIQUE NOT NULL,    Mgr_Ssn CHAR(9),    Mgr_startdate DATE,    FOREIGN KEY (Mgr_Ssn) REFERENCES Employee(Ssn));
