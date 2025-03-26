@@ -18,3 +18,53 @@ CREATE TABLE Dependent (    Ssn CHAR(9),    Dept_name VARCHAR(100),    Gender CH
 
 -- To add back foreign key contraint in department.
 ALTER TABLE department ADD CONSTRAINT fk_mgr_ssn FOREIGN KEY (mgr_ssn) REFERENCES employee_details(ssn);
+
+INSERT INTO Employee (Fname, Mname, Lname, Ssn, Bdate, Address, Gender, Salary, Super_Ssn, Dept_num)
+VALUES 
+('John', 'A', 'Doe', '111223333', '1985-03-15', '123 Main St', 'M', 3500.00, '222334555', 1),
+('Jane', 'B', 'Smith', '222334555', '1990-07-20', '456 Oak Ave', 'F', 4500.00, '333445666', 2),
+('Alice', 'C', 'Johnson', '333445666', '1982-06-11', '789 Pine Blvd', 'F', 6000.00, '111223333', 3),
+('Bob', 'D', 'Williams', '444556777', '1975-08-29', '101 Maple Rd', 'M', 5500.00, NULL, 1),
+('Charlie', 'E', 'Brown', '555667888', '1995-02-17', '202 Cedar St', 'M', 3000.00, '222334555', 2);
+
+-- Inserting records into Department Table
+INSERT INTO Department (Dept_num, Dept_name, Mgr_Ssn, Mgr_startdate)
+VALUES
+(1, 'Marketing', '111223333', '2010-05-01'),
+(2, 'Sales', '222334555', '2015-08-14'),
+(3, 'Engineering', '333445666', '2018-09-21');
+
+-- Inserting records into Department_locations Table
+INSERT INTO Department_locations (Dept_num, Location)
+VALUES
+(1, 'New York'),
+(1, 'San Francisco'),
+(2, 'Chicago'),
+(2, 'Los Angeles'),
+(3, 'Seattle');
+
+-- Inserting records into Project Table
+INSERT INTO Project (Proj_num, Proj_name, Proj_location, Dept_num)
+VALUES
+(1, 'Super', 'New York', 1),
+(2, 'TechUpgrade', 'Seattle', 3),
+(3, 'AdCampaign', 'San Francisco', 1),
+(4, 'SalesBoost', 'Los Angeles', 2);
+
+-- Inserting records into Employee_Project Table
+INSERT INTO Employee_Project (Ssn, Proj_num, Hours)
+VALUES
+('111223333', 1, 40),
+('222334555', 3, 35),
+('333445666', 2, 50),
+('444556777', 4, 45),
+('555667888', 2, 30);
+
+-- Inserting records into Dependent Table
+INSERT INTO Dependent (Ssn, Dept_name, Gender, Bdate, Relationship)
+VALUES
+('111223333', 'Marketing', 'F', '2010-03-10', 'Wife'),
+('222334555', 'Sales', 'M', '1993-08-19', 'Son'),
+('333445666', 'Engineering', 'F', '2017-04-22', 'Daughter'),
+('444556777', 'Marketing', 'F', '2005-01-02', 'Daughter'),
+('555667888', 'Sales', 'M', '2002-07-15', 'Son');
