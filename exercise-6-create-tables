@@ -19,52 +19,47 @@ CREATE TABLE Dependent (    Ssn CHAR(9),    Dept_name VARCHAR(100),    Gender CH
 -- To add back foreign key contraint in department.
 ALTER TABLE department ADD CONSTRAINT fk_mgr_ssn FOREIGN KEY (mgr_ssn) REFERENCES employee_details(ssn);
 
-INSERT INTO Employee (Fname, Mname, Lname, Ssn, Bdate, Address, Gender, Salary, Super_Ssn, Dept_num)
-VALUES 
-('John', 'A', 'Doe', '111223333', '1985-03-15', '123 Main St', 'M', 3500.00, '222334555', 1),
-('Jane', 'B', 'Smith', '222334555', '1990-07-20', '456 Oak Ave', 'F', 4500.00, '333445666', 2),
-('Alice', 'C', 'Johnson', '333445666', '1982-06-11', '789 Pine Blvd', 'F', 6000.00, '111223333', 3),
-('Bob', 'D', 'Williams', '444556777', '1975-08-29', '101 Maple Rd', 'M', 5500.00, NULL, 1),
-('Charlie', 'E', 'Brown', '555667888', '1995-02-17', '202 Cedar St', 'M', 3000.00, '222334555', 2);
 
--- Inserting records into Department Table
-INSERT INTO Department (Dept_num, Dept_name, Mgr_Ssn, Mgr_startdate)
-VALUES
-(1, 'Marketing', '111223333', '2010-05-01'),
-(2, 'Sales', '222334555', '2015-08-14'),
-(3, 'Engineering', '333445666', '2018-09-21');
 
--- Inserting records into Department_locations Table
-INSERT INTO Department_locations (Dept_num, Location)
-VALUES
-(1, 'New York'),
-(1, 'San Francisco'),
-(2, 'Chicago'),
-(2, 'Los Angeles'),
-(3, 'Seattle');
+INSERT INTO Employee VALUES ('John', 'A', 'Doe', '111223333', '15-MAR-1995', '123 Main St', 'M', 3500.00, NULL, 1, 'A+');
+INSERT INTO Employee VALUES ('Jane', 'B', 'Smith', '222334555', '20-JUL-1990', '456 Oak Ave', 'F', 4500.00, NULL, 2, 'B-');
+INSERT INTO Employee VALUES ('Alice', 'C', 'Johnson', '333445666', '11-JUN-1982', '789 Pine Blvd', 'F', 6000.00, NULL, 3, 'O+');
+INSERT INTO Employee VALUES ('Bob', 'D', 'Williams', '444556777', '29-AUG-1975', '101 Maple Rd', 'M', 5500.00, NULL, 1, 'B+');
+INSERT INTO Employee VALUES ('Charlie', 'E', 'Brown', '555667888', '17-FEB-1992', '202 Cedar St', 'M', 3000.00, NULL, 2, 'A+');
 
--- Inserting records into Project Table
-INSERT INTO Project (Proj_num, Proj_name, Proj_location, Dept_num)
-VALUES
-(1, 'Super', 'New York', 1),
-(2, 'TechUpgrade', 'Seattle', 3),
-(3, 'AdCampaign', 'San Francisco', 1),
-(4, 'SalesBoost', 'Los Angeles', 2);
 
--- Inserting records into Employee_Project Table
-INSERT INTO Employee_Project (Ssn, Proj_num, Hours)
-VALUES
-('111223333', 1, 40),
-('222334555', 3, 35),
-('333445666', 2, 50),
-('444556777', 4, 45),
-('555667888', 2, 30);
 
--- Inserting records into Dependent Table
-INSERT INTO Dependent (Ssn, Dept_name, Gender, Bdate, Relationship)
-VALUES
-('111223333', 'Marketing', 'F', '2010-03-10', 'Wife'),
-('222334555', 'Sales', 'M', '1993-08-19', 'Son'),
-('333445666', 'Engineering', 'F', '2017-04-22', 'Daughter'),
-('444556777', 'Marketing', 'F', '2005-01-02', 'Daughter'),
-('555667888', 'Sales', 'M', '2002-07-15', 'Son');
+INSERT INTO Department VALUES (1, 'Marketing', '111223333', '01-MAY-2010');
+INSERT INTO Department VALUES (2, 'Sales', '222334555', '14-AUG-2015');
+INSERT INTO Department VALUES (3, 'Engineering', '333445666', '21-SEP-2019');
+
+
+
+INSERT INTO Department_locations VALUES (1, 'New York');
+INSERT INTO Department_locations VALUES (1, 'San Francisco');
+INSERT INTO Department_locations VALUES (2, 'Chicago');
+INSERT INTO Department_locations VALUES (2, 'Los Angeles');
+INSERT INTO Department_locations VALUES (3, 'Seattle');
+
+
+
+INSERT INTO Project VALUES (1, 'Super', 'New York', 1);
+INSERT INTO Project VALUES (2, 'TechUpgrade', 'Seattle', 3);
+INSERT INTO Project VALUES (3, 'AdCampaign', 'San Francisco', 1);
+INSERT INTO Project VALUES (4, 'SalesBoost', 'Los Angeles', 2);
+
+
+
+INSERT INTO Employee_Project VALUES ('111223333', 1, 40);
+INSERT INTO Employee_Project VALUES ('222334555', 3, 35);
+INSERT INTO Employee_Project VALUES ('333445666', 2, 50);
+INSERT INTO Employee_Project VALUES ('444556777', 4, 45);
+INSERT INTO Employee_Project VALUES ('555667888', 2, 30);
+
+
+
+INSERT INTO Dependent VALUES ('111223333', 'Marketing', 'F', '2010-03-10', 'Wife');
+INSERT INTO Dependent VALUES ('222334555', 'Sales', 'M', '1993-08-19', 'Son');
+INSERT INTO Dependent VALUES ('333445666', 'Engineering', 'F', '2017-04-22', 'Daughter');
+INSERT INTO Dependent VALUES ('444556777', 'Marketing', 'F', '2005-01-02', 'Daughter');
+INSERT INTO Dependent VALUES ('555667888', 'Sales', 'M', '2002-07-15', 'Son');
