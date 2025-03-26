@@ -1,0 +1,18 @@
+-- Create the Employee table
+CREATE TABLE Employee (    Fname VARCHAR(50),    Mname VARCHAR(50),    Lname VARCHAR(50) NOT NULL,    Ssn CHAR(9) NOT NULL, -- Social Security Number (SSN)    Bdate DATE,    Address VARCHAR(255),    Gender CHAR(1),    Salary DECIMAL(10, 2),    Super_Ssn CHAR(9),    Dept_num INT NOT NULL,    PRIMARY KEY (Ssn),    FOREIGN KEY (Dept_num) REFERENCES Department(Dept_num),    FOREIGN KEY (Super_Ssn) REFERENCES Employee(Ssn));
+
+-- Create the Department table
+CREATE TABLE Department (    Dept_num INT PRIMARY KEY,    Dept_name VARCHAR(100) UNIQUE NOT NULL,    Mgr_Ssn CHAR(9),    Mgr_startdate DATE,    FOREIGN KEY (Mgr_Ssn) REFERENCES Employee(Ssn));
+
+-- Create the Department_locations table
+CREATE TABLE Department_locations (    Dept_num INT,    Location VARCHAR(100),    PRIMARY KEY (Dept_num, Location),    FOREIGN KEY (Dept_num) REFERENCES Department(Dept_num));
+
+-- Create the Project table
+CREATE TABLE Project (    Proj_num INT PRIMARY KEY,    Proj_name VARCHAR(100),    Proj_location VARCHAR(100),    Dept_num INT,    FOREIGN KEY (Dept_num) REFERENCES Department(Dept_num));
+
+-- Create the Employee_Project table
+CREATE TABLE Employee_Project (    Ssn CHAR(9),    Proj_num INT,    Hours DECIMAL(5, 2),    PRIMARY KEY (Ssn, Proj_num),    FOREIGN KEY (Ssn) REFERENCES Employee(Ssn),    FOREIGN KEY (Proj_num) REFERENCES Project(Proj_num));
+
+-- Create the Dependent table
+CREATE TABLE Dependent (    Ssn CHAR(9),    Dept_name VARCHAR(100),    Gender CHAR(1),    Bdate DATE,    Relationship VARCHAR(50),    PRIMARY KEY (Ssn, Dept_name),    FOREIGN KEY (Ssn) REFERENCES Employee(Ssn),    FOREIGN KEY (Dept_name) REFERENCES Department(Dept_name));
+
