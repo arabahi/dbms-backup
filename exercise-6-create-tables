@@ -1,5 +1,5 @@
 -- Create the Employee table
-CREATE TABLE Employee (    Fname VARCHAR(50),    Mname VARCHAR(50),    Lname VARCHAR(50) NOT NULL,    Ssn CHAR(9) NOT NULL,    Bdate DATE,    Address VARCHAR(255),    Gender CHAR(1),    Salary DECIMAL(10, 2),    Super_Ssn CHAR(9),    Dept_num INT NOT NULL,    PRIMARY KEY (Ssn),    FOREIGN KEY (Dept_num) REFERENCES Department(Dept_num),    FOREIGN KEY (Super_Ssn) REFERENCES Employee(Ssn));
+CREATE TABLE Employee (    Fname VARCHAR(50),    Mname VARCHAR(50),    Lname VARCHAR(50) NOT NULL,    Ssn CHAR(9) NOT NULL,   Bdate DATE,    Address VARCHAR(255),    Gender CHAR(1),    Salary DECIMAL(10, 2),    Super_Ssn CHAR(9),    Dept_num INT NOT NULL,    PRIMARY KEY (Ssn),    FOREIGN KEY (Dept_num) REFERENCES Department(Dept_num),    FOREIGN KEY (Super_Ssn) REFERENCES Employee(Ssn));
 
 -- Create the Department table
 CREATE TABLE Department (    Dept_num INT PRIMARY KEY,    Dept_name VARCHAR(100) UNIQUE NOT NULL,    Mgr_Ssn CHAR(9),    Mgr_startdate DATE,    FOREIGN KEY (Mgr_Ssn) REFERENCES Employee(Ssn));
@@ -16,8 +16,6 @@ CREATE TABLE Employee_Project (    Ssn CHAR(9),    Proj_num INT,    Hours DECIMA
 -- Create the Dependent table
 CREATE TABLE Dependent (    Ssn CHAR(9),    Dept_name VARCHAR(100),    Gender CHAR(1),    Bdate DATE,    Relationship VARCHAR(50),    PRIMARY KEY (Ssn, Dept_name),    FOREIGN KEY (Ssn) REFERENCES Employee(Ssn),    FOREIGN KEY (Dept_name) REFERENCES Department(Dept_name));
 
--- To add back foreign key contraint in department.
-ALTER TABLE department ADD CONSTRAINT fk_mgr_ssn FOREIGN KEY (mgr_ssn) REFERENCES employee_details(ssn);
 
 
 
@@ -57,8 +55,14 @@ INSERT INTO Employee_Project VALUES ('444556777', 4, 45);
 INSERT INTO Employee_Project VALUES ('555667888', 2, 30);
 
 
+
 INSERT INTO Dependent VALUES ('111223333', 'Marketing', 'F', '10-MAR-2010', 'Wife');
 INSERT INTO Dependent VALUES ('222334555', 'Sales', 'M', '19-AUG-1993', 'Son');
 INSERT INTO Dependent VALUES ('333445666', 'Engineering', 'F', '22-APR-2017', 'Daughter');
 INSERT INTO Dependent VALUES ('444556777', 'Marketing', 'F', '02-JAN-2005', 'Daughter');
 INSERT INTO Dependent VALUES ('555667888', 'Sales', 'M', '15-JUL-2002', 'Son');
+
+
+
+
+
