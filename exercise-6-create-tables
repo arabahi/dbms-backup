@@ -57,9 +57,8 @@ INSERT INTO Employee_Project VALUES ('444556777', 4, 45);
 INSERT INTO Employee_Project VALUES ('555667888', 2, 30);
 
 
-
-INSERT INTO Dependent VALUES ('111223333', 'Marketing', 'F', '2010-03-10', 'Wife');
-INSERT INTO Dependent VALUES ('222334555', 'Sales', 'M', '1993-08-19', 'Son');
-INSERT INTO Dependent VALUES ('333445666', 'Engineering', 'F', '2017-04-22', 'Daughter');
-INSERT INTO Dependent VALUES ('444556777', 'Marketing', 'F', '2005-01-02', 'Daughter');
-INSERT INTO Dependent VALUES ('555667888', 'Sales', 'M', '2002-07-15', 'Son');
+INSERT INTO Dependent VALUES ('111223333', 'Marketing', 'F', '10-MAR-2010', 'Wife');
+INSERT INTO Dependent VALUES ('222334555', 'Sales', 'M', '19-AUG-1993', 'Son');
+INSERT INTO Dependent VALUES ('333445666', 'Engineering', 'F', '22-APR-2017', 'Daughter');
+INSERT INTO Dependent VALUES ('444556777', 'Marketing', 'F', '02-JAN-2005', 'Daughter');
+INSERT INTO Dependent VALUES ('555667888', 'Sales', 'M', '15-JUL-2002', 'Son');
