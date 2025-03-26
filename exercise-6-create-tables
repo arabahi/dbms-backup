@@ -16,3 +16,5 @@ CREATE TABLE Employee_Project (    Ssn CHAR(9),    Proj_num INT,    Hours DECIMA
 -- Create the Dependent table
 CREATE TABLE Dependent (    Ssn CHAR(9),    Dept_name VARCHAR(100),    Gender CHAR(1),    Bdate DATE,    Relationship VARCHAR(50),    PRIMARY KEY (Ssn, Dept_name),    FOREIGN KEY (Ssn) REFERENCES Employee(Ssn),    FOREIGN KEY (Dept_name) REFERENCES Department(Dept_name));
 
+-- To add back foreign key contraint in department.
+ALTER TABLE department ADD CONSTRAINT fk_mgr_ssn FOREIGN KEY (mgr_ssn) REFERENCES employee_details(ssn);
